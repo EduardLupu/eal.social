@@ -1,3 +1,5 @@
+@import "index.css";
+
 header {
     display: flex;
     align-items: center;
@@ -24,6 +26,10 @@ header {
         padding: 0 2rem 0 2rem;
     }
     header > .profile {
+        text-align: center;
+    }
+    .about_me {
+        margin: 0 auto;
         text-align: center;
     }
 }
@@ -56,35 +62,54 @@ h2 {
     text-align: center;
 }
 
-
-a:active, a:hover {
-    outline-width: 0;
-}
-
 hr {
     width: 100%;
     border: 0.1rem solid black;
     margin: 2rem 0 2rem 0;
 }
 
+#small-description {
+    font-size: 2.2rem;
+    font-style: italic;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+    line-height: 2.5rem;
+}
+
+.about_me {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 63%;
+    margin: 0 auto;
+    text-align: center;
+    line-height: clamp(2.5rem, 2.5rem, 3rem);
+}
+
+.about_me a:visited, .about_me a:link, .about_me a:active, .about_me a:hover {
+    color: var(--var-main-color);
+}
 
 .socials {
     display: flex;
-    margin-top: 2rem;
-    margin-left: 0.4rem;
+    margin-top: 1.5rem;
     gap: 2.5rem;
+    padding-bottom: 5rem;
 }
 
 .socials i {
     font-size: 3rem;
-}
-
-.socials > a:visited, a:link {
     color: black;
 }
 
-.socials > a:hover {
-    color: hsl(0, 0%, 30%);
+.socials i:hover {
+    color: var(--var-main-color);
+    opacity: 0.90;
 }
 
 .socials > .link {
@@ -147,29 +172,3 @@ hr {
     opacity: 1;
     transform: translate3d(0, 0, 0);
 }
-
-#small-description {
-    font-size: 2.2rem;
-    font-style: italic;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.about_me {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5rem;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 63%;
-    margin: 0 auto;
-    text-align: center;
-    line-height: clamp(2.5rem, 2.5rem, 3rem);
-}
-
-.about_me a:visited, .about_me a:link {
-    color: mediumpurple;
-}
-

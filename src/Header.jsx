@@ -6,8 +6,16 @@ function Header() {
             <header>
                 <section className="profile">
                     <a href="index.html"><img className="profile-pic" src="src/assets/images/eduardlupu.jpg" alt="Eduard Lupu"/></a>
-                    <h1>Eduard Adrian Lupu</h1>
+                    <h1 id="name">Eduard Adrian Lupu</h1>
                     <p id="small-description"></p>
+                </section>
+                <section className="about_me">
+                    <p>Final year student of Computer Science @ <a href="https://www.cs.ubbcluj.ro/en/" target="_blank">Babes-Bolyai
+                        University</a></p>
+                    <p>Software Developer Intern @ <a href="https://bitstone.com/" target="_blank">BitStone</a>, previously
+                        @
+                        <a href="https://www.bitdefender.com/" target="_blank">BitDefender</a></p>
+                    <p>Feel free to contact me for any collaborations!</p>
                     <section className="socials">
                         <a className="link" data-title="facebook.com/eduard.adrian.lupu"
                            href="https://www.facebook.com/eduard.adrian.lupu"
@@ -30,14 +38,7 @@ function Header() {
                            target="_blank"><i className="fab fa-spotify"></i></a>
                     </section>
                 </section>
-                <section className="about_me">
-                    <p>Final year student of Computer Science @ <a href="https://www.cs.ubbcluj.ro/en/" target="_blank">Babes-Bolyai
-                        University</a></p>
-                    <p>Software Developer Intern @ <a href="https://bitstone.com/" target="_blank">BitStone</a>, previously
-                        @
-                        <a href="https://www.bitdefender.com/" target="_blank">BitDefender</a></p>
-                    <p>Feel free to contact me for any collaborations!</p>
-                </section>
+                <script src={"src/assets/js/header.js"}></script>
             </header>
         </>
     )

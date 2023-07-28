@@ -1,5 +1,6 @@
 :root {
   box-sizing: border-box;
+  --var-main-color: #911ac5;
 }
 
 html {
