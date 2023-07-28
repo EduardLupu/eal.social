@@ -13,8 +13,7 @@ function Header() {
                     <p>Computer Science student @ <a className="link" href="https://www.cs.ubbcluj.ro/en/" target="_blank" data-title="Check my faculty!">Babes-Bolyai
                         University</a></p>
                     <p>Software Developer Intern @ <a className="link" href="https://bitstone.com/" target="_blank" data-title="Check my workplace!">BitStone</a>, previously
-                        @
-                        <a className="link" href="https://www.bitdefender.com/" target="_blank" data-title="bitdefender.com">BitDefender</a></p>
+                        @ <a className="link" href="https://www.bitdefender.com/" target="_blank" data-title="bitdefender.com">BitDefender</a></p>
                     <p>Feel free to contact me for any collaborations!</p>
                     <section className="socials">
                         <a className="link" data-title="facebook.com/eduard.adrian.lupu"

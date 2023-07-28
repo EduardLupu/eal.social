@@ -1,0 +1,85 @@
+
+main {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1200px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        padding: 0 2rem 0 2rem;
+    }
+}
+
+h2 {
+    margin: 2rem 0 2rem 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.skills i {
+    font-size: 8rem;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 3rem;
+    padding: 1rem;
+    margin-bottom: 3rem;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60rem;
+}
+
+.project:nth-child(odd) {
+    background-image: url("assets/images/note1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.project:nth-child(even) {
+    background-image: url("assets/images/note2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.project p {
+    font-size: 1.6rem;
+    padding: 1.3rem;
+    margin: 0 1rem 0 1rem;
+}
+
+.project p:last-child {
+    margin-bottom: 3rem;
+}
+
+.project h3 {
+    text-align: center;
+    margin-top: 12.5rem;
+    font-size: 2.5rem;
+}
+
+.project a:visited, .project a:link {
+    color: mediumpurple;
+}
+
+.music, .location {
+    height: 53rem;
+}
