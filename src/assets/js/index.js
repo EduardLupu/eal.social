@@ -7,8 +7,7 @@ let descriptions = [
     "At least 4 espressos a day.",
     "Actually enjoying JavaScript. :)",
     "Clean code, clean mind.",
-    "Music on full blast while coding.",
-    "I don't mind boilerplate code as long as I have CoPilot with me."
+    "Music on full blast while coding."
 ];
 
 window.onload = function () {
@@ -60,17 +59,3 @@ window.onload = function () {
     }
     typeWriter().then(r => {});
 }
-
-let myMediaQuery = window.matchMedia('(min-width: 500px)');
-
-function widthChangeCallback(myMediaQuery) {
-    if(myMediaQuery.matches) {
-        document.querySelector("#name").textContent = "Eduard Adrian Lupu";
-    } else {
-        document.querySelector("#name").textContent = "Eduard A. Lupu";
-    }
-}
-
-myMediaQuery.addEventListener('change', widthChangeCallback);
-
-widthChangeCallback(myMediaQuery);

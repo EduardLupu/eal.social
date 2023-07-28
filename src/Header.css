@@ -11,8 +11,8 @@ header {
 
 .profile-pic {
     margin-top: 5rem;
-    width: clamp(25rem, 30rem, 35rem);
-    height: clamp(25rem, 30rem, 35rem);
+    width: 30rem;
+    height: 30rem;
     border-radius: 50%;
     cursor: pointer;
     object-fit: cover;
@@ -23,14 +23,25 @@ header {
     header {
         display: flex;
         flex-direction: column;
-        padding: 0 2rem 0 2rem;
-    }
-    header > .profile {
-        text-align: center;
-    }
-    .about_me {
+        justify-content: space-between;
         margin: 0 auto;
-        text-align: center;
+    }
+    .about_me p:first-child {
+        margin-top: 1rem;
+    }
+    .about_me p {
+        margin-bottom: 1rem;
+        padding-inline: 2rem;
+    }
+    .about_me .socials {
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .profile-pic {
+        width: 8rem;
+        height: 8rem;
     }
 }
 
@@ -88,7 +99,6 @@ hr {
     flex-basis: 63%;
     margin: 0 auto;
     text-align: center;
-    line-height: clamp(2.5rem, 2.5rem, 3rem);
 }
 
 .about_me a:visited, .about_me a:link, .about_me a:active, .about_me a:hover {
@@ -98,8 +108,10 @@ hr {
 .socials {
     display: flex;
     margin-top: 1.5rem;
-    gap: 2.5rem;
+    justify-content: space-between;
+    align-items: center;
     padding-bottom: 5rem;
+    width: 60%;
 }
 
 .socials i {
@@ -112,29 +124,24 @@ hr {
     opacity: 0.90;
 }
 
-.socials > .link {
-    margin: 0;
+.link {
     position: relative;
     display: inline-block;
-    height: 3.5rem;
-    width: 3.5rem;
 }
 
-.socials > .link:hover:before {
+.link:hover:before {
     opacity: 1;
     display: inline-block;
     transform: translate3d(0, 0, 0);
     white-space: nowrap;
 }
 
-.socials > .link:before {
+.link:before {
     content: attr(data-title);
     display: none;
     position: absolute;
-    bottom: -3.4rem;
-    left: -0.6rem;
-    margin: 0 auto;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    top: 3.895rem;
     padding: 0.3rem 1rem;
     background: black;
     color: white;
@@ -143,32 +150,32 @@ hr {
     line-height: 2.2rem;
     opacity: 0;
     transition: opacity 150ms linear, transform 150ms linear, -webkit-transform 150ms linear;
-    transform: translate3d(0, -8px, 0);
+    transform: translate3d(0, -1.2rem, 0);
     z-index: 99;
 }
 
-.socials > .link:after {
+.link:after {
     content: "";
     position: absolute;
-    top: 35px;
-    left: 13px;
+    top: 3.5rem;
+    left: 1.3rem;
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-bottom: 6px solid #222;
+    border-bottom: 6px solid black;
     opacity: 0;
     transition: opacity 150ms linear, transform 150ms linear, -webkit-transform 150ms linear;
-    transform: translate3d(0, -8px, 0);
+    transform: translate3d(0, -1.2rem, 0);
     z-index: 100;
 }
 
-.socials > .link:hover:after {
+.link:hover:after {
     opacity: 1;
     transform: translate3d(0, 0, 0);
 }
 
-.socials > .link:hover:before {
+.link:hover:before {
     opacity: 1;
     transform: translate3d(0, 0, 0);
 }
