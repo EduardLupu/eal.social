@@ -174,3 +174,21 @@ h2 {
     opacity: 1;
     transform: translate3d(0, 0, 0);
 }
+
+.profile > .link:before, .profile > .link:after {
+    top: 75%;
+    left: 35%;
+}
+
+.profile > .link:hover:before {
+    transform: translate3d(-10%, 0.5rem, 0);
+}
+
+.skills > .wrapper > .link:before, .skills > .wrapper > .link:after {
+    top: 75%;
+    left: 35%;
+}
+
+.skills > .wrapper > .link:hover:before {
+    transform: translate3d(-10%, 0.5rem, 0);
+}

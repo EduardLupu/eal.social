@@ -3,11 +3,11 @@ let descriptions = [
     "Swimmer and sauna lover.",
     "Mixed-martial arts addict.",
     "80's music listener.",
-    "Aesthetics admirer.",
     "At least 4 espressos a day.",
     "Actually enjoying JavaScript. :)",
     "Clean code, clean mind.",
-    "Music on full blast while coding."
+    "Music on full blast while coding.",
+    "Skipping rope to stay in shape."
 ];
 
 window.onload = function () {
@@ -59,3 +59,4 @@ window.onload = function () {
     }
     typeWriter().then(r => {});
 }
+

@@ -5,7 +5,7 @@ function Header() {
         <>
             <header>
                 <section className="profile">
-                    <a href="index.html"><img className="profile-pic" src="src/assets/images/eduardlupu.webp" alt="Eduard Lupu"/></a>
+                    <a className="link" data-title="Yes, this is me!" href="index.html"><img className="profile-pic" src="src/assets/images/eduardlupu.webp" alt="Eduard Lupu"/></a>
                     <h1 id="name">Eduard Adrian Lupu</h1>
                     <p id="small-description"></p>
                 </section>
@@ -37,7 +37,6 @@ function Header() {
                            target="_blank"><i className="fab fa-spotify"></i></a>
                     </section>
                 </section>
-                <script src={"src/assets/js/header.js"}></script>
             </header>
         </>
     )
