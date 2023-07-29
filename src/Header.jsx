@@ -5,7 +5,7 @@ function Header() {
         <>
             <header>
                 <section className="profile">
-                    <a href="index.html"><img className="profile-pic" src="src/assets/images/eduardlupu.jpg" alt="Eduard Lupu"/></a>
+                    <a href="index.html"><img className="profile-pic" src="src/assets/images/eduardlupu.webp" alt="Eduard Lupu"/></a>
                     <h1 id="name">Eduard Adrian Lupu</h1>
                     <p id="small-description"></p>
                 </section>

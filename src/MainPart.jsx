@@ -34,51 +34,55 @@ function MainPart() {
                 </section>
 
                 <section className="projects">
-                    <h2>Projects I made</h2>
-                    <section className="project">
-                        <h3><a href="https://github.com/EduardLupu/tourism-rest-api" target="_blank">Tourism RESTful
-                            API</a>
-                        </h3>
-                        <p>RESTful API built with <strong>Java</strong>, <strong>Spring Boot</strong>, <strong>Spring
-                            Boot
-                            MVC</strong>, <strong>Spring Data
-                            JPA</strong>, <strong>Hibernate</strong>, <strong>MySQL</strong> and
-                            developed using <strong>MVC Architecture</strong>, <strong>ORM</strong>, <strong>DTO
-                                Pattern</strong>,
-                            custom exceptions, input validation, <strong>JUnit</strong> tests
-                            with <strong>Mockito</strong>.</p>
-                        <p>Built with <strong>React + Vite</strong> and <strong>TypeScript</strong>. Used multiple
-                            components
-                            from
-                            MUI library.</p>
-                    </section>
-                    <section className="project">
-                        <h3><a href="https://github.com/EduardLupu/social-platform" target="_blank">Social Platform</a>
-                        </h3>
-                        <p>Created a GUI-based desktop application using <strong>C++</strong> and <strong>Qt
-                            framework</strong> that
-                            uses a local repository, based on
-                            files, to simulate a Social Platform.</p>
-                        <p>The application starts for every user in the repository, it shows
-                            relevant posts based on the subscriptions of the user and allows users to post their
-                            status.</p>
-                    </section>
-                    <section className="project">
-                        <h3><a href="https://github.com/EduardLupu/gomoku" target="_blank">Gomoku</a></h3>
-                        <p>Created a Gomoku game using <strong>Pygame</strong> and <strong>Numpy</strong>. </p>
-                        <p>The player has the option to choose between a graphical
-                            user interface or a console based interface and also between a competitive AI or a AI based
-                            on
-                            randomness.</p>
-                    </section>
-                    <section className="project">
-                        <h3><a href="https://github.com/EduardLupu/library-manager">Library Manager</a></h3>
-                        <p>Application of a library (books, clients, rentals), built in <strong>Python</strong>.</p>
-                        <p>The user can add, remove, update, and list both clients and books.</p>
-                        <p>Unlimited undo/redo functionality (implemented using reverse operation)</p>
-                        <p>The repository can be selected by the user (in-memory, files, binary-files, json,
-                            sqlite).</p>
-                    </section>
+                    <h2>Some of my projects</h2>
+                    <div className="wrapper">
+                        <section className="project">
+                            <h3><a href="https://github.com/EduardLupu/tourism-rest-api" target="_blank">Tourism RESTful
+                                API</a>
+                            </h3>
+                            <p>RESTful API built with <strong>Java</strong>, <strong>Spring Boot</strong>, <strong>Spring
+                                Boot
+                                MVC</strong>, <strong>Spring Data
+                                JPA</strong>, <strong>Hibernate</strong>, <strong>MySQL</strong> and
+                                developed using <strong>MVC Architecture</strong>, <strong>ORM</strong>, <strong>DTO
+                                    Pattern</strong>,
+                                custom exceptions, input validation, <strong>JUnit</strong> tests
+                                with <strong>Mockito</strong>.</p>
+                            <p>Built with <strong>React + Vite</strong> and <strong>TypeScript</strong>. Used multiple
+                                components
+                                from
+                                MUI library.</p>
+                        </section>
+                        <section className="project">
+                            <h3><a href="https://github.com/EduardLupu/social-platform" target="_blank">Social
+                                Platform</a>
+                            </h3>
+                            <p>Created a GUI-based desktop application using <strong>C++</strong> and <strong>Qt
+                                framework</strong> that
+                                uses a local repository, based on
+                                files, to simulate a Social Platform.</p>
+                            <p>The application starts for every user in the repository, it shows
+                                relevant posts based on the subscriptions of the user and allows users to post their
+                                status.</p>
+                        </section>
+                        <section className="project">
+                            <h3><a href="https://github.com/EduardLupu/gomoku" target="_blank">Gomoku</a></h3>
+                            <p>Created a Gomoku game using <strong>Pygame</strong> and <strong>Numpy</strong>. </p>
+                            <p>The player has the option to choose between a graphical
+                                user interface or a console based interface and also between a competitive AI or a AI
+                                based
+                                on
+                                randomness.</p>
+                        </section>
+                        <section className="project">
+                            <h3><a href="https://github.com/EduardLupu/library-manager">Library Manager</a></h3>
+                            <p>Application of a library (books, clients, rentals), built in <strong>Python</strong>.</p>
+                            <p>The user can add, remove, update, and list both clients and books.</p>
+                            <p>Unlimited undo/redo functionality (implemented using reverse operation)</p>
+                            <p>The repository can be selected by the user (in-memory, files, binary-files, json,
+                                sqlite).</p>
+                        </section>
+                    </div>
                 </section>
                 <section className="music">
                     <h2>Music I love</h2>
