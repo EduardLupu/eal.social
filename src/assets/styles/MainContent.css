@@ -47,14 +47,14 @@ h2 {
 }
 
 .project:nth-child(odd) {
-    background-image: url("assets/images/note1.webp");
+    background-image: url("../images/note1.webp");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
 }
 
 .project:nth-child(even) {
-    background-image: url("assets/images/note2.webp");
+    background-image: url("../images/note2.webp");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -83,3 +83,73 @@ h2 {
 .music, .location {
     height: 53rem;
 }
+
+@keyframes playingAnimation {
+    10% {
+        transform: scaleY(0.3);
+    }
+
+    30% {
+        transform: scaleY(1);
+    }
+
+    60% {
+        transform: scaleY(0.5);
+    }
+
+    80% {
+        transform: scaleY(0.75);
+    }
+
+    100% {
+        transform: scaleY(0.5);
+    }
+}
+
+.playing-animation {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 20px;
+    height: 20px;
+}
+
+.playing-animation span {
+    width: 3px;
+    height: 100%;
+    background-color: #1ED760;
+    border-radius: 2px;
+    animation: playingAnimation 2.2s ease infinite alternate;
+    content: '';
+    transform-origin: bottom;
+}
+
+.playing-animation span:nth-of-type(2) {
+    animation-delay: -2.2s;
+}
+
+.playing-animation span:nth-of-type(3) {
+    animation-delay: -3.7s;
+}
+
+.playing-animation span:nth-of-type(4) {
+    animation-delay: -1.4s;
+}
+
+.spotify-logo {
+    color: #1DB954;
+    font-size: 5rem;
+}
+
+.now-playing {
+    height: 15rem;
+    width: 100%;
+    background-color: #222222;
+}
+
+#song-cover {
+    height: 20rem;
+    width: 20rem;
+    object-fit: cover;
+}
+

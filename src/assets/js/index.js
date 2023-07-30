@@ -59,4 +59,3 @@ window.onload = function () {
     }
     typeWriter().then(r => {});
 }
-

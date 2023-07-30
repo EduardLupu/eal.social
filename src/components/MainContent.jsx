@@ -1,6 +1,100 @@
-import './MainPart.css';
+import '../assets/styles/MainContent.css';
 
-function MainPart() {
+function MainContent() {
+
+    const client_id = import.meta.env.VITE_SPOTIFY_CLIENT_ID
+    const client_secret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
+    const refresh_token = import.meta.env.VITE_SPOTIFY_REFRESH_TOKEN;
+
+    const basic = btoa(`${client_id}:${client_secret}`);
+
+    const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
+    const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`;
+    const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
+
+    const getAccessToken = async () => {
+        const response = await fetch(TOKEN_ENDPOINT, {
+            method: 'POST',
+            headers: {
+                Authorization: `Basic ${basic}`,
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                grant_type: 'refresh_token',
+                refresh_token
+            })
+        });
+
+        return response.json();
+    };
+
+    const getNowPlaying = async () => {
+        const { access_token } = await getAccessToken();
+
+        return fetch(NOW_PLAYING_ENDPOINT, {
+            headers: {
+                Authorization: `Bearer ${access_token}`
+            }
+        });
+    };
+
+    const getTopTracks = async () => {
+        const { access_token } = await getAccessToken();
+
+        return fetch(TOP_TRACKS_ENDPOINT, {
+            headers: {
+                Authorization: `Bearer ${access_token}`
+            }
+        });
+    };
+
+    async function getTopTracksItems() {
+        const response = await getTopTracks();
+        if (response.status === 204 || response.status > 400) {
+            return false;
+        }
+
+        return await response.json();
+    }
+
+    async function getNowPlayingItem() {
+        const response = await getNowPlaying();
+        if (response.status === 204 || response.status > 400) {
+            return false;
+        }
+        return await response.json();
+    }
+
+    async function createPlayingItem() {
+        const song = await getNowPlayingItem();
+        console.log(song);
+        const albumImageUrl = song.item.album.images[0].url;
+        const artist = song.item.artists.map((_artist) => _artist.name).join(", ");
+        const isPlaying = song.is_playing;
+        const songUrl = song.item.external_urls.spotify;
+        const title = song.item.name;
+
+        if (isPlaying) {
+            document.getElementById("song-title").innerHTML = `<a href="${songUrl}" target="_blank">${title}</a>`;
+            document.getElementById("song-artist").innerHTML = artist;
+            document.getElementById("song-cover").src = albumImageUrl;
+        }
+        else {
+            const topTracks = await getTopTracksItems();
+            const topTrack = topTracks.items[0];
+            const topTrackAlbumImageUrl = topTrack.album.images[0].url;
+            const topTrackArtist = topTrack.artists.map((_artist) => _artist.name).join(", ");
+            const topTrackUrl = topTrack.external_urls.spotify;
+            const topTrackTitle = topTrack.name;
+
+            document.getElementById("song-title").innerHTML = `<a href="${topTrackUrl}" target="_blank">${topTrackTitle}</a>`;
+            document.getElementById("song-artist").innerHTML = topTrackArtist;
+            document.getElementById("song-cover").src = topTrackAlbumImageUrl;
+        }
+    }
+
+    createPlayingItem();
+
     return (
         <>
             <hr/>
@@ -86,7 +180,20 @@ function MainPart() {
                 </section>
                 <section className="music">
                     <h2>Music I love</h2>
-
+                       <div className="now-playing">
+                           <div className="playing-animation">
+                               <span></span>
+                               <span></span>
+                               <span></span>
+                               <span></span>
+                           </div>
+                           <div className="spotify-logo">
+                               <i className="fab fa-spotify"></i>
+                           </div>
+                           <img id="song-cover" src="" alt="Song cover"/>
+                           <h3 id="song-title"></h3>
+                           <h4 id="song-artist"></h4>
+                       </div>
                 </section>
 
                 <section className="location">
@@ -97,4 +204,4 @@ function MainPart() {
         </>)
 }
 
-export default MainPart;
+export default MainContent;
