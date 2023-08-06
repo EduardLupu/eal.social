@@ -1,99 +1,69 @@
 import '../assets/styles/MainContent.css';
+import createPlayingItem, {createTopTracks} from "../assets/middleware/api.js";
+import {useEffect, useState} from "react";
+import {faSpotify} from "@fortawesome/free-brands-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function MainContent() {
 
-    const client_id = import.meta.env.VITE_SPOTIFY_CLIENT_ID
-    const client_secret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
-    const refresh_token = import.meta.env.VITE_SPOTIFY_REFRESH_TOKEN;
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [title, setTitle] = useState('');
+    const [artist, setArtist] = useState('');
+    const [albumImageUrl, setAlbumImageUrl] = useState('');
+    const [songUrl, setSongUrl] = useState('');
+    const [explicit, setExplicit] = useState(false);
+    const [items, setItems] = useState([]);
 
-    const basic = btoa(`${client_id}:${client_secret}`);
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const [isPlaying, title, explicit, artist, albumImageUrl, songUrl] = await createPlayingItem();
+                setIsPlaying(isPlaying);
+                setTitle(title);
+                setExplicit(explicit);
+                setArtist(artist);
+                setAlbumImageUrl(albumImageUrl);
+                setSongUrl(songUrl);
 
-    const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
-    const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`;
-    const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
-
-    const getAccessToken = async () => {
-        const response = await fetch(TOKEN_ENDPOINT, {
-            method: 'POST',
-            headers: {
-                Authorization: `Basic ${basic}`,
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                grant_type: 'refresh_token',
-                refresh_token
-            })
-        });
-
-        return response.json();
-    };
-
-    const getNowPlaying = async () => {
-        const { access_token } = await getAccessToken();
-
-        return fetch(NOW_PLAYING_ENDPOINT, {
-            headers: {
-                Authorization: `Bearer ${access_token}`
+            } catch (error) {
+                console.error('Error fetching now playing item:', error);
             }
-        });
-    };
+        }
 
-    const getTopTracks = async () => {
-        const { access_token } = await getAccessToken();
-
-        return fetch(TOP_TRACKS_ENDPOINT, {
-            headers: {
-                Authorization: `Bearer ${access_token}`
+        async function fetchTopTracks() {
+            try {
+                setItems(await createTopTracks());
+            } catch (error) {
+                console.error('Error fetching top tracks:', error);
             }
-        });
-    };
-
-    async function getTopTracksItems() {
-        const response = await getTopTracks();
-        if (response.status === 204 || response.status > 400) {
-            return false;
         }
 
-        return await response.json();
-    }
+        fetchData();
+        fetchTopTracks();
+    }, []);
 
-    async function getNowPlayingItem() {
-        const response = await getNowPlaying();
-        if (response.status === 204 || response.status > 400) {
-            return false;
+    useEffect(() => {
+        function handleAnimateSpans() {
+            const animateSpans = document.querySelectorAll('.animate');
+            animateSpans.forEach(span => {
+                span.classList.remove('animate');
+                let parent = span.parentNode;
+                if (parent.tagName === 'A')
+                    parent = parent.parentNode;
+                if (parent.offsetWidth < span.offsetWidth)
+                    span.classList.add('animate');
+            });
         }
-        return await response.json();
-    }
 
-    async function createPlayingItem() {
-        const song = await getNowPlayingItem();
-        console.log(song);
-        const albumImageUrl = song.item.album.images[0].url;
-        const artist = song.item.artists.map((_artist) => _artist.name).join(", ");
-        const isPlaying = song.is_playing;
-        const songUrl = song.item.external_urls.spotify;
-        const title = song.item.name;
+        // Call the handleAnimateSpans function whenever the component updates or the window is resized
+        handleAnimateSpans();
+        window.addEventListener('resize', handleAnimateSpans);
 
-        if (isPlaying) {
-            document.getElementById("song-title").innerHTML = `<a href="${songUrl}" target="_blank">${title}</a>`;
-            document.getElementById("song-artist").innerHTML = artist;
-            document.getElementById("song-cover").src = albumImageUrl;
-        }
-        else {
-            const topTracks = await getTopTracksItems();
-            const topTrack = topTracks.items[0];
-            const topTrackAlbumImageUrl = topTrack.album.images[0].url;
-            const topTrackArtist = topTrack.artists.map((_artist) => _artist.name).join(", ");
-            const topTrackUrl = topTrack.external_urls.spotify;
-            const topTrackTitle = topTrack.name;
-
-            document.getElementById("song-title").innerHTML = `<a href="${topTrackUrl}" target="_blank">${topTrackTitle}</a>`;
-            document.getElementById("song-artist").innerHTML = topTrackArtist;
-            document.getElementById("song-cover").src = topTrackAlbumImageUrl;
-        }
-    }
-
-    createPlayingItem();
+        // Cleanup the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('resize', handleAnimateSpans);
+        };
+    });
 
     return (
         <>
@@ -102,27 +72,67 @@ function MainContent() {
                 <section className="skills">
                     <h2>Comfortable working with</h2>
                     <div className="wrapper">
-                        <a className="link" data-title="C++"><i className="devicon-cplusplus-plain colored"></i></a>
-                        <a className="link" data-title="Python"><i className="devicon-python-plain colored"></i></a>
-                        <a className="link" data-title="PHP"><i className="devicon-php-plain colored"></i></a>
-                        <a className="link" data-title="Java"><i className="devicon-java-plain colored"></i></a>
-                        <a className="link" data-title="Spring"><i
-                            className="devicon-spring-plain-wordmark colored"></i></a>
-                        <a className="link" data-title="HTML5"><i className="devicon-html5-plain colored"></i></a>
-                        <a className="link" data-title="CSS3"><i className="devicon-css3-plain colored"></i></a>
-                        <a className="link" data-title="JavaScript"><i className="devicon-javascript-plain colored"></i></a>
-                        <a className="link" data-title="TypeScript"><i className="devicon-typescript-plain colored"></i></a>
-                        <a className="link" data-title="React"><i className="devicon-react-original colored"></i></a>
-                        <a className="link" data-title="MySQL"><i className="devicon-mysql-plain colored"></i></a>
-                        <a className="link" data-title="Git"><i className="devicon-git-plain colored"></i></a>
-                        <a className="link" data-title="TortoiseGit"><i
-                            className="devicon-tortoisegit-plain colored"></i></a>
-                        <a className="link" data-title="Linux"><i className="devicon-linux-plain colored"></i></a>
-                        <a className="link" data-title="Ubuntu"><i className="devicon-ubuntu-plain colored"></i></a>
-                        <a className="link" data-title="IntelliJ"><i className="devicon-intellij-plain colored"></i></a>
-                        <a className="link" data-title="Visual Studio"><i
-                            className="devicon-visualstudio-plain colored"></i></a>
-                        <a className="link" data-title="PyCharm"><i className="devicon-pycharm-plain colored"></i></a>
+                        <a className="link" data-title="C++" href="https://en.cppreference.com/w/cpp" target="_blank">
+                            <i className="devicon-cplusplus-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="Python" href="https://www.python.org/" target="_blank">
+                            <i className="devicon-python-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="PHP" href="https://www.php.net/" target="_blank">
+                            <i className="devicon-php-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="Java" href="https://docs.oracle.com/en/java/" target="_blank">
+                            <i className="devicon-java-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="Spring" href="https://spring.io/" target="_blank">
+                            <i className="devicon-spring-plain-wordmark colored"></i>
+                        </a>
+                        <a className="link" data-title="HTML5"
+                           href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank">
+                            <i className="devicon-html5-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="CSS3" href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+                           target="_blank">
+                            <i className="devicon-css3-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="JavaScript"
+                           href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+                            <i className="devicon-javascript-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="TypeScript" href="https://www.typescriptlang.org/"
+                           target="_blank">
+                            <i className="devicon-typescript-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="React" href="https://reactjs.org/" target="_blank">
+                            <i className="devicon-react-original colored"></i>
+                        </a>
+                        <a className="link" data-title="MySQL" href="https://dev.mysql.com/" target="_blank">
+                            <i className="devicon-mysql-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="Git" href="https://git-scm.com/" target="_blank">
+                            <i className="devicon-git-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="TortoiseGit" href="https://tortoisegit.org/" target="_blank">
+                            <i className="devicon-tortoisegit-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="Linux" href="https://www.linux.org/" target="_blank">
+                            <i className="devicon-linux-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="Ubuntu" href="https://ubuntu.com/" target="_blank">
+                            <i className="devicon-ubuntu-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="IntelliJ" href="https://www.jetbrains.com/idea/"
+                           target="_blank">
+                            <i className="devicon-intellij-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="Visual Studio" href="https://visualstudio.microsoft.com/"
+                           target="_blank">
+                            <i className="devicon-visualstudio-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="PyCharm" href="https://www.jetbrains.com/pycharm/"
+                           target="_blank">
+                            <i className="devicon-pycharm-plain colored"></i>
+                        </a>
 
                     </div>
                 </section>
@@ -180,22 +190,50 @@ function MainContent() {
                 </section>
                 <section className="music">
                     <h2>Music I love</h2>
-                       <div className="now-playing">
-                           <div className="playing-animation">
-                               <span></span>
-                               <span></span>
-                               <span></span>
-                               <span></span>
-                           </div>
-                           <div className="spotify-logo">
-                               <i className="fab fa-spotify"></i>
-                           </div>
-                           <img id="song-cover" src="" alt="Song cover"/>
-                           <h3 id="song-title"></h3>
-                           <h4 id="song-artist"></h4>
-                       </div>
-                </section>
+                    <div className="now-playing">
+                        {
+                            isPlaying ?
+                                <div className="spotify-container">
+                                    <div className="playing-animation">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <div className="now-playing">
+                                        <div className="spotify-container">
+                                            <img id="song-cover" src={albumImageUrl} alt="Song cover"/>
+                                            <div className="song-details">
+                                                <h3 id="song-title"><a href={songUrl} target="_blank"><span className="animate">{title}</span></a></h3>
+                                                {explicit ?
+                                                    <div className="explicit">
+                                                        <h4 id="song-explicit">E</h4>
+                                                        <h4 id="song-artist">
+                                                        <span className="animate">{artist}</span>
+                                                        </h4>
+                                                    </div>
+                                                    :
+                                                    <h4 id="song-artist"><span className="animate">{artist}</span></h4>}
+                                            </div>
+                                            <div className="spotify-logo">
+                                                <FontAwesomeIcon icon={faSpotify}/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> :
+                                <div className="not-playing">
+                                    <div className="spotify-logo">
+                                        <FontAwesomeIcon icon={faSpotify}/>
+                                    </div>
+                                    <h3>Currently not playing any song on Spotify!</h3>
+                                </div>
+                        }
+                    </div>
+                    <div className="top20songs">
 
+
+                    </div>
+                </section>
                 <section className="location">
                     <h2>Where you can find me</h2>
 

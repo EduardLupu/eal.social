@@ -109,12 +109,12 @@ h2 {
     width: 60%;
 }
 
-.socials i {
+.socials .socials-icon {
     font-size: 3rem;
     color: black;
 }
 
-.socials i:hover {
+.socials .socials-icon:hover {
     color: var(--var-main-color);
     opacity: 0.90;
 }

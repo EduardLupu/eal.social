@@ -1,0 +1,9 @@
+
+.vertical-line {
+    border-left: 6px solid rgba(0, 0, 0, 0.60);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 6rem;
+    z-index: 1;
+}

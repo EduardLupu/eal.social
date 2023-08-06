@@ -57,5 +57,5 @@ window.onload = function () {
             await typeWriter();
         }
     }
-    typeWriter().then(r => {});
+    typeWriter();
 }
