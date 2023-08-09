@@ -6,6 +6,7 @@ const basic = btoa(`${client_id}:${client_secret}`);
 
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
 const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`;
+const TOP_ARTISTS_ENDPOINT = `https://api.spotify.com/v1/me/top/artists?time_range=short_term&limit=20&offset=0`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 const getAccessToken = async () => {
@@ -44,6 +45,24 @@ const getTopTracks = async () => {
     });
 };
 
+const getTopArtists = async () => {
+    const { access_token } = await getAccessToken();
+
+    return fetch(TOP_ARTISTS_ENDPOINT, {
+        headers: {
+            Authorization: `Bearer ${access_token}`
+        }
+    });
+}
+
+async function getTopArtistsItems() {
+    const response = await getTopArtists();
+    if (response.status === 204 || response.status > 400) {
+        return false;
+    }
+    return await response.json();
+}
+
 async function getTopTracksItems() {
     const response = await getTopTracks();
     if (response.status === 204 || response.status > 400) {
@@ -80,3 +99,10 @@ export async function createTopTracks() {
     const tracks = await getTopTracksItems();
     return tracks.items;
 }
+
+export async function createTopArtists() {
+    const artists = await getTopArtistsItems();
+    return artists.items;
+}
+
+
