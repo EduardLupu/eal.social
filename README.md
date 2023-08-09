@@ -1,6 +1,7 @@
-# React + Vite
+# Eduard Lupu | Personal website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the source code from my personal website, [eal.social](https://eal.social/).
+I used React with JavaScript + Vite.
 
 Currently, two official plugins are available:
 

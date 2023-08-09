@@ -1,5 +1,5 @@
-import '../assets/styles/MainContent.css';
-import createPlayingItem, {createTopArtists, createTopTracks} from "../assets/middleware/api.js";
+import '../styles/MainContent.css';
+import createPlayingItem, {createTopArtists, createTopTracks} from "../middleware/api.js";
 import {useEffect, useState} from "react";
 import {faSpotify} from "@fortawesome/free-brands-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -99,65 +99,65 @@ function MainContent() {
                 <section className="skills">
                     <h2>Comfortable working with</h2>
                     <div className="wrapper">
-                        <a className="link" data-title="C++" href="https://en.cppreference.com/w/cpp" target="_blank" aria-label="Link to C++ website">
+                        <a className="link" data-title="C++" href="https://en.cppreference.com/w/cpp" target="_blank" aria-label="Link to C++ website" rel="noreferrer">
                             <i className="devicon-cplusplus-plain colored"></i>
                         </a>
-                        <a className="link" data-title="Python" href="https://www.python.org/" target="_blank" aria-label="Link to Python website">
+                        <a className="link" data-title="Python" href="https://www.python.org/" target="_blank" aria-label="Link to Python website" rel="noreferrer">
                             <i className="devicon-python-plain colored"></i>
                         </a>
-                        <a className="link" data-title="PHP" href="https://www.php.net/" target="_blank" aria-label="Link to PHP website">
+                        <a className="link" data-title="PHP" href="https://www.php.net/" target="_blank" aria-label="Link to PHP website" rel="noreferrer">
                             <i className="devicon-php-plain colored"></i>
                         </a>
-                        <a className="link" data-title="Java" href="https://docs.oracle.com/en/java/" target="_blank" aria-label="Link to Java website">
+                        <a className="link" data-title="Java" href="https://docs.oracle.com/en/java/" target="_blank" aria-label="Link to Java website" rel="noreferrer">
                             <i className="devicon-java-plain colored"></i>
                         </a>
-                        <a className="link" data-title="Spring" href="https://spring.io/" target="_blank" aria-label="Link to Spring website">
+                        <a className="link" data-title="Spring" href="https://spring.io/" target="_blank" aria-label="Link to Spring website" rel="noreferrer">
                             <i className="devicon-spring-plain-wordmark colored"></i>
                         </a>
                         <a className="link" data-title="HTML5"
-                           href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank" aria-label="Link to HTML5 website">
+                           href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank" aria-label="Link to HTML5 website" rel="noreferrer">
                             <i className="devicon-html5-plain colored"></i>
                         </a>
                         <a className="link" data-title="CSS3" href="https://developer.mozilla.org/en-US/docs/Web/CSS"
-                           target="_blank" aria-label="Link to CSS3 website">
+                           target="_blank" aria-label="Link to CSS3 website" rel="noreferrer">
                             <i className="devicon-css3-plain colored"></i>
                         </a>
                         <a className="link" data-title="JavaScript"
-                           href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" aria-label="Link to JS website">
+                           href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" aria-label="Link to JS website" rel="noreferrer">
                             <i className="devicon-javascript-plain colored"></i>
                         </a>
                         <a className="link" data-title="TypeScript" href="https://www.typescriptlang.org/"
-                           target="_blank" aria-label="Link to TS website">
+                           target="_blank" aria-label="Link to TS website" rel="noreferrer">
                             <i className="devicon-typescript-plain colored"></i>
                         </a>
-                        <a className="link" data-title="React" href="https://reactjs.org/" target="_blank" aria-label="Link to React website">
+                        <a className="link" data-title="React" href="https://reactjs.org/" target="_blank" aria-label="Link to React website" rel="noreferrer">
                             <i className="devicon-react-original colored"></i>
                         </a>
-                        <a className="link" data-title="MySQL" href="https://dev.mysql.com/" target="_blank" aria-label="Link to MySQL website">
+                        <a className="link" data-title="MySQL" href="https://dev.mysql.com/" target="_blank" aria-label="Link to MySQL website" rel="noreferrer">
                             <i className="devicon-mysql-plain colored"></i>
                         </a>
-                        <a className="link" data-title="Git" href="https://git-scm.com/" target="_blank" aria-label="Link to Git website">
+                        <a className="link" data-title="Git" href="https://git-scm.com/" target="_blank" aria-label="Link to Git website" rel="noreferrer">
                             <i className="devicon-git-plain colored"></i>
                         </a>
-                        <a className="link" data-title="TortoiseGit" href="https://tortoisegit.org/" target="_blank" aria-label="Link to TortoiseGit website">
+                        <a className="link" data-title="TortoiseGit" href="https://tortoisegit.org/" target="_blank" aria-label="Link to TortoiseGit website" rel="noreferrer">
                             <i className="devicon-tortoisegit-plain colored"></i>
                         </a>
-                        <a className="link" data-title="Linux" href="https://www.linux.org/" target="_blank" aria-label="Link to Linux website">
+                        <a className="link" data-title="Linux" href="https://www.linux.org/" target="_blank" aria-label="Link to Linux website" rel="noreferrer">
                             <i className="devicon-linux-plain colored"></i>
                         </a>
-                        <a className="link" data-title="Ubuntu" href="https://ubuntu.com/" target="_blank" aria-label="Link to Ubuntu website">
+                        <a className="link" data-title="Ubuntu" href="https://ubuntu.com/" target="_blank" aria-label="Link to Ubuntu website" rel="noreferrer">
                             <i className="devicon-ubuntu-plain colored"></i>
                         </a>
                         <a className="link" data-title="IntelliJ" href="https://www.jetbrains.com/idea/"
-                           target="_blank" aria-label="Link to IntelliJ website">
+                           target="_blank" aria-label="Link to IntelliJ website" rel="noreferrer">
                             <i className="devicon-intellij-plain colored"></i>
                         </a>
                         <a className="link" data-title="Visual Studio" href="https://visualstudio.microsoft.com/"
-                           target="_blank" aria-label="Link to Visual Studio website">
+                           target="_blank" aria-label="Link to Visual Studio website" rel="noreferrer">
                             <i className="devicon-visualstudio-plain colored"></i>
                         </a>
                         <a className="link" data-title="PyCharm" href="https://www.jetbrains.com/pycharm/"
-                           target="_blank" aria-label="Link to PyCharm website">
+                           target="_blank" aria-label="Link to PyCharm website" rel="noreferrer">
                             <i className="devicon-pycharm-plain colored"></i>
                         </a>
 
@@ -168,7 +168,7 @@ function MainContent() {
                     <h2>Some of my projects</h2>
                     <div className="wrapper">
                         <section className="project">
-                            <h3><a href="https://github.com/EduardLupu/tourism-rest-api" target="_blank">Tourism RESTful
+                            <h3><a href="https://github.com/EduardLupu/tourism-rest-api" target="_blank" rel="noreferrer">Tourism RESTful
                                 API</a>
                             </h3>
                             <p>RESTful API built with <strong>Java</strong>, <strong>Spring Boot</strong>, <strong>Spring
@@ -185,7 +185,7 @@ function MainContent() {
                                 MUI library.</p>
                         </section>
                         <section className="project">
-                            <h3><a href="https://github.com/EduardLupu/social-platform" target="_blank">Social
+                            <h3><a href="https://github.com/EduardLupu/social-platform" target="_blank" rel="noreferrer">Social
                                 Platform</a>
                             </h3>
                             <p>Created a GUI-based desktop application using <strong>C++</strong> and <strong>Qt
@@ -197,7 +197,7 @@ function MainContent() {
                                 status.</p>
                         </section>
                         <section className="project">
-                            <h3><a href="https://github.com/EduardLupu/gomoku" target="_blank">Gomoku</a></h3>
+                            <h3><a href="https://github.com/EduardLupu/gomoku" target="_blank" rel="noreferrer">Gomoku</a></h3>
                             <p>Created a Gomoku game using <strong>Pygame</strong> and <strong>Numpy</strong>. </p>
                             <p>The player has the option to choose between a graphical
                                 user interface or a console based interface and also between a competitive AI or a AI
@@ -212,7 +212,7 @@ function MainContent() {
                             <p>Used <strong>dummyjson.com</strong> to fetch products and an internal API made at the office to do functionalities which required <strong>POST</strong> methods. </p>
                             <p>Also implemented this in vanilla JavaScript, take a look <strong><a
                                 href="https://github.com/EduardLupu/vanilla-javascript-shop/tree/eduard"
-                                target="_blank">here!</a></strong></p>
+                                target="_blank" rel="noreferrer">here!</a></strong></p>
                         </section>
                     </div>
                 </section>
@@ -233,7 +233,7 @@ function MainContent() {
                                             <div className="spotify-container">
                                                 <img id="song-cover" src={albumImageUrl} alt="Song cover" loading="lazy"/>
                                                 <div className="song-details">
-                                                    <h3 id="song-title"><a href={songUrl} target="_blank"><span
+                                                    <h3 id="song-title"><a href={songUrl} target="_blank" rel="noreferrer"><span
                                                         className="animate">{title}</span></a></h3>
                                                     {explicit ?
                                                         <div className="explicit">
