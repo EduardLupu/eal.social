@@ -20,11 +20,9 @@ function Header() {
         }
 
         window.addEventListener('resize', handleResize);
-        window.addEventListener('load', handleResize);
 
         return () => {
             window.removeEventListener('resize', handleResize);
-            window.removeEventListener('load', handleResize);
         }
 
     });
@@ -35,7 +33,11 @@ function Header() {
                 <section className="profile">
                     <a className="link" data-title="Yes, this is me!" href="#" aria-label="Just a picture with me.">
                         <img className="profile-pic" src={profile} alt="Eduard Lupu"/></a>
-                    <h1 id="name">Eduard Adrian Lupu</h1>
+                    <h1 id="name">
+                        {
+                            window.innerWidth <= 600 ? "Eduard A. Lupu" : "Eduard Adrian Lupu"
+                        }
+                    </h1>
                     <Typewriter />
                 </section>
                 <section className="about_me">
