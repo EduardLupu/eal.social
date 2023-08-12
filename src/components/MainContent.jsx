@@ -269,7 +269,7 @@ function MainContent() {
                                             <p id="index">{index + 1}</p>
                                             <img src={artist.images[0].url} alt="Artist cover" loading="lazy"/>
                                             <div className="song-details">
-                                                <p id="name">{artist.name}</p>
+                                                <p id="artist-name">{artist.name}</p>
                                                 <p id="popularity">Popularity: {artist.popularity}%</p>
                                             </div>
                                         </div>)
