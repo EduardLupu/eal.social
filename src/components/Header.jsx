@@ -41,9 +41,10 @@ function Header() {
                     <Typewriter />
                 </section>
                 <section className="about_me">
+                    <p>Check out my <a href="/Lupu_Eduard.pdf" target="_blank">résumé!</a></p>
                     <p>Computer Science student @ <a className="link" href="https://www.cs.ubbcluj.ro/en/" target="_blank" data-title="Check out my faculty!" rel="noreferrer">Babes-Bolyai
                         University</a></p>
-                    <p>Software Developer Intern @ <a className="link" href="https://bitstone.com/" target="_blank" data-title="Check out my workplace!" rel="noreferrer">BitStone</a>, previously
+                    <p>Software Developer @ <a className="link" href="https://bitstone.com/" target="_blank" data-title="Check out my workplace!" rel="noreferrer">BitStone</a>, previously
                         @ <a className="link" href="https://www.bitdefender.com/" target="_blank" data-title="bitdefender.com" rel="noreferrer">BitDefender</a></p>
                     <p>Feel free to contact me for any collaborations!</p>
                     <section className="socials">

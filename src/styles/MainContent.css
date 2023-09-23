@@ -48,7 +48,7 @@ h2 {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 61rem;
+    height: 60rem;
 }
 
 .project:nth-child(odd) {

@@ -133,34 +133,30 @@ function MainContent() {
                         <a className="link" data-title="React" href="https://reactjs.org/" target="_blank" aria-label="Link to React website" rel="noreferrer">
                             <i className="devicon-react-original colored"></i>
                         </a>
+                        <a className={"link"} data-title="Redux" href="https://redux.js.org/" target="_blank" aria-label="Link to Redux website" rel="noreferrer">
+                            <i className="devicon-redux-original colored"></i>
+                        </a>
+                        <a className="link" data-title="Next.js" href="https://nextjs.org/" target="_blank" aria-label="Link to Next.js website" rel="noreferrer">
+                            <i className="devicon-nextjs-original colored"></i>
+                        </a>
+                        <a className="link" data-title="Node.js" href="https://nodejs.org/en/" target="_blank" aria-label="Link to Node.js website" rel="noreferrer">
+                            <i className="devicon-nodejs-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="Express.js" href="https://expressjs.com/" target="_blank" aria-label="Link to Express.js website" rel="noreferrer">
+                            <i className="devicon-express-original colored"></i>
+                        </a>
+                        <a className="link" data-title="MongoDB" href="https://www.mongodb.com/" target="_blank" aria-label="Link to MongoDB website" rel="noreferrer">
+                            <i className="devicon-mongodb-plain colored"></i>
+                        </a>
+                        <a className="link" data-title="Sequelize" href="https://sequelize.org/" target="_blank" aria-label="Link to Sequelize website" rel="noreferrer">
+                            <i className="devicon-sequelize-plain colored"></i>
+                        </a>
                         <a className="link" data-title="MySQL" href="https://dev.mysql.com/" target="_blank" aria-label="Link to MySQL website" rel="noreferrer">
                             <i className="devicon-mysql-plain colored"></i>
                         </a>
                         <a className="link" data-title="Git" href="https://git-scm.com/" target="_blank" aria-label="Link to Git website" rel="noreferrer">
                             <i className="devicon-git-plain colored"></i>
                         </a>
-                        <a className="link" data-title="TortoiseGit" href="https://tortoisegit.org/" target="_blank" aria-label="Link to TortoiseGit website" rel="noreferrer">
-                            <i className="devicon-tortoisegit-plain colored"></i>
-                        </a>
-                        <a className="link" data-title="Linux" href="https://www.linux.org/" target="_blank" aria-label="Link to Linux website" rel="noreferrer">
-                            <i className="devicon-linux-plain colored"></i>
-                        </a>
-                        <a className="link" data-title="Ubuntu" href="https://ubuntu.com/" target="_blank" aria-label="Link to Ubuntu website" rel="noreferrer">
-                            <i className="devicon-ubuntu-plain colored"></i>
-                        </a>
-                        <a className="link" data-title="IntelliJ" href="https://www.jetbrains.com/idea/"
-                           target="_blank" aria-label="Link to IntelliJ website" rel="noreferrer">
-                            <i className="devicon-intellij-plain colored"></i>
-                        </a>
-                        <a className="link" data-title="Visual Studio" href="https://visualstudio.microsoft.com/"
-                           target="_blank" aria-label="Link to Visual Studio website" rel="noreferrer">
-                            <i className="devicon-visualstudio-plain colored"></i>
-                        </a>
-                        <a className="link" data-title="PyCharm" href="https://www.jetbrains.com/pycharm/"
-                           target="_blank" aria-label="Link to PyCharm website" rel="noreferrer">
-                            <i className="devicon-pycharm-plain colored"></i>
-                        </a>
-
                     </div>
                 </section>
 
@@ -168,51 +164,31 @@ function MainContent() {
                     <h2>Some of my projects</h2>
                     <div className="wrapper">
                         <section className="project">
-                            <h3><a href="https://github.com/EduardLupu/tourism-rest-api" target="_blank" rel="noreferrer">Tourism RESTful
-                                API</a>
-                            </h3>
-                            <p>RESTful API built with <strong>Java</strong>, <strong>Spring Boot</strong>, <strong>Spring
-                                Boot
-                                MVC</strong>, <strong>Spring Data
-                                JPA</strong>, <strong>Hibernate</strong>, <strong>MySQL</strong> and
-                                developed using <strong>MVC Architecture</strong>, <strong>ORM</strong>, <strong>DTO
-                                    Pattern</strong>,
-                                custom exceptions, input validation, <strong>JUnit</strong> tests
-                                with <strong>Mockito</strong>.</p>
-                            <p>Built with <strong>React + Vite</strong> and <strong>TypeScript</strong>. Used multiple
-                                components
-                                from
-                                MUI library.</p>
+                            <h3><a href="https://github.com/EduardLupu/Shop" target="_blank" rel="noreferrer">Shop FE</a> / <a href="https://github.com/EduardLupu/shop_backend" target="_blank" rel="noreferrer">BE</a></h3>
+                            <p>Created a full-stack online shop application using <strong>React</strong>, <strong>JavaScript</strong>, <strong>Redux</strong>, <strong>RTK
+                                Query</strong>, <strong>Node.js</strong>, <strong>TypeScript</strong>, <strong>Mongoose</strong> and <strong>MongoDB</strong>. </p>
+                            <p>The project offers a complete shopping experience with various features. The front-end is
+                                deployed on <strong><a href="https://eduardlupu.github.io/shop/" target="_blank" rel="noreferrer">GitHub Pages</a></strong>, while the back-end is hosted on my virtual private server at <strong><a href="https://eal.social/api/" target="_blank" rel="noreferrer">eal.social/api/</a></strong>.</p>
                         </section>
                         <section className="project">
-                            <h3><a href="https://github.com/EduardLupu/social-platform" target="_blank" rel="noreferrer">Social
-                                Platform</a>
+                            <h3><a href="https://github.com/EduardLupu/tourism-rest-api" target="_blank" rel="noreferrer">Tourism</a>
                             </h3>
-                            <p>Created a GUI-based desktop application using <strong>C++</strong> and <strong>Qt
-                                framework</strong> that
-                                uses a local repository, based on
-                                files, to simulate a Social Platform.</p>
-                            <p>The application starts for every user in the repository, it shows
-                                relevant posts based on the subscriptions of the user and allows users to post their
-                                status.</p>
+                            <p>Developed a web application using <strong>Java</strong>, <strong>Spring Boot</strong>, <strong>Spring
+                                Boot MVC</strong>, <strong>Spring Data JPA</strong>, <strong>Hibernate</strong>, <strong>MySQL</strong>, <strong>React</strong>, <strong>TypeScript</strong>,
+                                <strong>Material-UI</strong>, <strong>JUnit</strong> and <strong>Mockito</strong>.</p>
+                            <p>The application oversees relationships among countries, cities, languages, tourists and visits.</p>
+                        </section>
+                        <section className="project">
+                            <h3><a href="https://github.com/EduardLupu/user-management" target="_blank" rel="noreferrer">User manager</a>
+                            </h3>
+                            <p>Developed a user management tool using <strong>Node.js</strong>, <strong>TypeScript</strong>, <strong>Express</strong> and <strong>Sequelize</strong>.</p>
+                            <p> The project emphasizes industry-standard security practices with <strong>JWT</strong> tokens and <strong>bcrypt</strong>, showcasing a reliable solution for managing users.</p>
                         </section>
                         <section className="project">
                             <h3><a href="https://github.com/EduardLupu/gomoku" target="_blank" rel="noreferrer">Gomoku</a></h3>
                             <p>Created a Gomoku game using <strong>Pygame</strong> and <strong>Numpy</strong>. </p>
                             <p>The player has the option to choose between a graphical
-                                user interface or a console based interface and also between a competitive AI or a AI
-                                based
-                                on
-                                randomness.</p>
-                        </section>
-                        <section className="project">
-                            <h3><a href="https://github.com/EduardLupu/Shop">Shop</a></h3>
-                            <p>Web application built with <strong>React</strong> and <strong>JavaScript</strong>.
-                                Allows user to do any actions that they would do in an online shop.</p>
-                            <p>Used <strong>dummyjson.com</strong> to fetch products and an internal API made at the office to do functionalities which required <strong>POST</strong> methods. </p>
-                            <p>Also implemented this in vanilla JavaScript, take a look <strong><a
-                                href="https://github.com/EduardLupu/vanilla-javascript-shop/tree/eduard"
-                                target="_blank" rel="noreferrer">here!</a></strong></p>
+                                user interface or a console based interface and also between 2 levels of difficulty.</p>
                         </section>
                     </div>
                 </section>
