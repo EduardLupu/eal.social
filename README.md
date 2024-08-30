@@ -1,5 +1,7 @@
 # Eduard Lupu | Personal website
 
+# Archived.
+
 This repository contains the source code from my personal website, [eal.social](https://eal.social/).
 I used React with JavaScript + Vite.
 
